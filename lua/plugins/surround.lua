@@ -1,5 +1,6 @@
 return {
-    "echasnovski/mini.surround",
-    opts = {}
+    "tpope/vim-surround",
+    config = function()
+    end
 }
 
