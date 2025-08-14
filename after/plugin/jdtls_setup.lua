@@ -2,10 +2,12 @@ local jdtls = {}
 
 function jdtls:setup()
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    local workspace_dir = "C:/work/other_projects/" .. project_name
+    local workspace_dir = "C:/work/hybris_docker/hybris_docker_hktvmall/" .. project_name
 
-    local on_attach = function(client)
-        client.server_capabilities.semanticTokensProvider = nil
+    local on_attach = function()
+        for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+            vim.api.nvim_set_hl(0, group, {})
+        end
     end
 
     local config = {
