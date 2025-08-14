@@ -1,7 +1,7 @@
 return {
     { "mason-org/mason.nvim",   opts = {} },
     { "mfussenegger/nvim-jdtls" },
-{
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require("lspconfig").lua_ls.setup({
