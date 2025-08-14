@@ -1,6 +1,6 @@
-local M = {}
+local jdtls = {}
 
-function M:setup()
+function jdtls:setup()
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     local workspace_dir = "C:/work/hybris_docker/hybris_docker_hktvmall/" .. project_name
     local config = {
@@ -72,4 +72,7 @@ function M:setup()
     require("jdtls").start_or_attach(config)
 end
 
-return M
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'java',
+    callback = jdtls.setup
+})

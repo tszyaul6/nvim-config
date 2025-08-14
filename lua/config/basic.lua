@@ -24,3 +24,18 @@ vim.keymap.set("i", "jk", "<Esc>", keymap_opts)
 vim.keymap.set("v", "<", "<gv", keymap_opts)
 vim.keymap.set("v", ">", ">gv", keymap_opts)
 vim.keymap.set("v", "p", "pgvy", keymap_opts)
+
+
+-- Goto next / prev method with g[ / g]
+vim.keymap.set({ "n", "x", "o" }, "g[", function()
+    vim.cmd.normal({ "[m", bang = true })
+end)
+
+vim.keymap.set({ "n", "x", "o" }, "g]", function()
+    vim.cmd.normal({ "]m", bang = true })
+end)
+
+for _, keys in ipairs({ "[m", "]m", "[M", "]M" }) do
+  vim.keymap.set({ "n", "x", "o" }, keys, "<Nop>")
+end
+
