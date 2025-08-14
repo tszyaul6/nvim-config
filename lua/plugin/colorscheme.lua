@@ -1,7 +1,7 @@
 return {
     "loctvl842/monokai-pro.nvim",
     opts = {
-        filter = "spectrum"
+        filter = "ristretto"
     },
     config = function(_, opts)
         require("monokai-pro").setup(opts)
