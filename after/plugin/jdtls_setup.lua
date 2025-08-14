@@ -2,7 +2,7 @@ local jdtls = {}
 
 function jdtls:setup()
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    local workspace_dir = "C:/work/hybris_docker/hybris_docker_hktvmall/" .. project_name
+    local workspace_dir = "C:/Users/tylam/AppData/Local/nvim-data/jdtls-workspace/" .. project_name
 
     local on_attach = function()
         for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
@@ -61,7 +61,28 @@ function jdtls:setup()
         -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
         -- for a list of options
         settings = {
-            java = {},
+            java = {
+                configuration = {
+                    runtimes = {
+                        {
+                            name = "JavaSE-1.8",
+                            path = "C:/Program Files/Java/jdk8u422-b05/jre"
+                        },
+                        {
+                            name = "JavaSE-11",
+                            path = "C:/Program Files/Java/jdk-11.0.24+8"
+                        },
+                        {
+                            name = "JavaSE-17",
+                            path = "C:/Program Files/Java/jdk-17.0.12+7"
+                        },
+                        {
+                            name = "JavaSE-22",
+                            path = "C:/Program Files/Java/openjdk-22.0.2"
+                        },
+                    }
+                }
+            },
         },
         -- Language server `initializationOptions`
         -- You need to extend the `bundles` with paths to jar files
