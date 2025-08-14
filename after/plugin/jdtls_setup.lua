@@ -3,6 +3,11 @@ local jdtls = {}
 function jdtls:setup()
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     local workspace_dir = "C:/work/hybris_docker/hybris_docker_hktvmall/" .. project_name
+
+    local on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+    end
+
     local config = {
         -- The command that starts the language server
         -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -66,6 +71,8 @@ function jdtls:setup()
         init_options = {
             bundles = {},
         },
+
+        on_attach = on_attach
     }
     -- This starts a new client & server,
     -- or attaches to an existing client & server depending on the `root_dir`.
