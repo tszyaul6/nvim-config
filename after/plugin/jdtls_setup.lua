@@ -2,7 +2,7 @@ local jdtls = {}
 
 function jdtls:setup()
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    local workspace_dir = "C:/work/hybris_docker/hybris_docker_hktvmall/" .. project_name
+    local workspace_dir = "C:/work/other_projects/" .. project_name
 
     local on_attach = function(client)
         client.server_capabilities.semanticTokensProvider = nil
