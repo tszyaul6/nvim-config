@@ -1,25 +1,20 @@
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" }
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true)
+            }
+        },
+    },
+})
+
 return {
     { "mason-org/mason.nvim",   opts = {} },
     { "mfussenegger/nvim-jdtls" },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("lspconfig").lua_ls.setup(
-                {
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" }
-                            },
-                            workspace = {
-                                library = vim.api.nvim_get_runtime_file("", true)
-                            }
-                        },
-                    },
-                }
-            )
-        end
-    },
+    { "neovim/nvim-lspconfig", },
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
